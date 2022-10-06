@@ -57,6 +57,7 @@ public class MainMenu {
 
         } else{
             System.out.println("Have a good Day!");
+            System.exit(0);
         }
 
     }

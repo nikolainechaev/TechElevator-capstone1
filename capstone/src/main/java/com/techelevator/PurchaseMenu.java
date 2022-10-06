@@ -10,7 +10,6 @@ public class PurchaseMenu {
     private List<Sellable> items;
     private UserChoice uc = new UserChoice();
     private Balance b = new Balance();
-    private boolean isValidSlot;
 
     public PurchaseMenu(Map<Sellable, Integer> stock, List<Sellable> items){
 
@@ -53,14 +52,6 @@ public class PurchaseMenu {
 
             dispenseProducts(slot);
 
-//            if(!isValidSlot){
-//
-//                System.out.println("Invalid code entered:");
-//                System.out.println();
-//                displayPurchaseMenu();
-//
-//            }
-
         } else {
 
             b.getChange();
@@ -76,8 +67,6 @@ public class PurchaseMenu {
         for(Sellable key : itemsStock.keySet()){
 
             if(key.getSlotNumber().equals(slot)){
-
-                isValidSlot = true;
 
                 if(itemsStock.get(key) == 0){
 
@@ -104,11 +93,8 @@ public class PurchaseMenu {
             }
         }
 
-        if(!isValidSlot){
-
             System.out.println("Invalid code entered:");
             System.out.println();
             displayPurchaseMenu();
-        }
     }
 }
