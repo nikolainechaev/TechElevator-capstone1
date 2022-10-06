@@ -20,7 +20,6 @@ public class UserChoice {
                 System.out.println("please enter a number 1-3");
                 getMenuChoice();
             }
-
         } catch (IllegalArgumentException e){
 
             System.out.println("please enter a number 1-3");

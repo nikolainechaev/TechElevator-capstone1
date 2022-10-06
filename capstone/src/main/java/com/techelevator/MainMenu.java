@@ -49,6 +49,7 @@ public class MainMenu {
 
         if(num == 1){
             displayItems();
+
         } else if(num == 2){
 
             PurchaseMenu p = new PurchaseMenu(itemStock, items);
