@@ -43,4 +43,9 @@ public class Gum implements Sellable{
         return this.type;
     }
 
+    @Override
+    public void getNoise() {
+        System.out.println("Chew Chew, Yum!");
+    }
+
 }

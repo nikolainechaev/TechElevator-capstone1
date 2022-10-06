@@ -43,4 +43,9 @@ public class Drink implements Sellable{
         return this.type;
     }
 
+    @Override
+    public void getNoise() {
+        System.out.println("Glug Glug, Yum!");
+    }
+
 }

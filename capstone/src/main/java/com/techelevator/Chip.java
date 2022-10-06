@@ -42,4 +42,9 @@ public class Chip implements Sellable{
     public String getType() {
         return this.type;
     }
+
+    @Override
+    public void getNoise() {
+        System.out.println("Crunch Crunch, Yum!");
+    }
 }

@@ -9,5 +9,6 @@ public interface Sellable {
     public void setPrice(double price);
     public double getPrice();
     public String getType();
+    public void getNoise();
 
 }

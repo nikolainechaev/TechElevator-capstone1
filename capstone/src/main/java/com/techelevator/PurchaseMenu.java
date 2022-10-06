@@ -28,15 +28,20 @@ public class PurchaseMenu {
         System.out.println();
 
         int num = uc.getMenuChoice();
+        purchaseMenuLogic(num);
+
+    }
+
+    public void purchaseMenuLogic(int num){
 
         if(num==1) {
+
             System.out.println("How much money do you want to deposit?");
             int number = uc.moneyDeposited();
             b.depositMoney(number);
             displayPurchaseMenu();
-        }
 
-        if(num == 2){
+        } else if(num == 2){
 
             for(Sellable s : items){
                 System.out.printf("%s - %s - %.2f\n", s.getSlotNumber(), s.getName(), s.getPrice());
@@ -45,35 +50,51 @@ public class PurchaseMenu {
             System.out.println("Enter Code: ");
             String slot = uc.slotChosen();
 
-            for(Sellable key : itemsStock.keySet()){
+            dispenseProducts(slot);
 
-                if(key.getSlotNumber().equals(slot)){
+        } else {
 
-                    if(itemsStock.get(key) == 0){
-
-                        System.out.println("Sorry, Item out of Stock!");
-                        displayPurchaseMenu();
-
-                    } else if(b.getBalance() < key.getPrice()){
-
-                        System.out.println("Sorry, not enough money");
-                        displayPurchaseMenu();
-
-                    } else{
-
-                        b.purchaseMade(key.getPrice());
-                        System.out.printf("%s - %.2f - %.2f\n", key.getName(), key.getPrice(), b.getBalance());
-                        int stock = itemsStock.get(key);
-                        itemsStock.put(key, stock -1);
-                        displayPurchaseMenu();
-
-                    }
-
-                }
-
-            }
-
+            b.getChange();
+            System.out.println();
+            MainMenu m = new MainMenu(itemsStock);
+            m.displayMainMenu();
         }
+
+    }
+
+    public void dispenseProducts(String slot){
+
+        for(Sellable key : itemsStock.keySet()){
+
+            if(key.getSlotNumber().equals(slot)){
+
+                if(itemsStock.get(key) == 0){
+
+                    System.out.println("Sorry, Item out of Stock!");
+                    System.out.println();
+                    displayPurchaseMenu();
+
+                } else if(b.getBalance() < key.getPrice()){
+
+                    System.out.println("Sorry, not enough money");
+                    System.out.println();
+                    displayPurchaseMenu();
+
+                } else{
+
+                    b.purchaseMade(key.getPrice());
+                    key.getNoise();
+                    System.out.printf("Item - %s\nPrice - %.2f\nRemaining Balance - %.2f\n", key.getName(), key.getPrice(), b.getBalance());
+                    System.out.println();
+                    int stock = itemsStock.get(key);
+                    itemsStock.put(key, stock -1);
+                    displayPurchaseMenu();
+                }
+            }
+        }
+        System.out.println("Invalid code entered:");
+        System.out.println();
+        displayPurchaseMenu();
 
     }
 

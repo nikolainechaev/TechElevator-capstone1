@@ -41,6 +41,8 @@ public class MainMenu {
         for(Sellable s : items){
             System.out.printf("%s - %s - %.2f\n", s.getSlotNumber(), s.getName(), s.getPrice());
         }
+        System.out.println();
+        displayMainMenu();
     }
 
     public void displayMenuLogic(int num){

@@ -43,4 +43,9 @@ public class Candy implements Sellable{
         return this.type;
     }
 
+    @Override
+    public void getNoise() {
+        System.out.println("Munch Munch, Yum!");
+    }
+
 }
