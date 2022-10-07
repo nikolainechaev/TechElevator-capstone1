@@ -19,9 +19,9 @@ public class Balance {
     }
 
     public void getChange(){
-        BigDecimal quarterValue = new BigDecimal(.25);
-        BigDecimal dimeValue = new BigDecimal(.10);
-        BigDecimal nickelValue = new BigDecimal(.05);
+        BigDecimal quarterValue = new BigDecimal(".25");
+        BigDecimal dimeValue = new BigDecimal(".1");
+        BigDecimal nickelValue = new BigDecimal(".05");
         int quarters = 0;
         int dimes = 0;
         int nickels = 0;
