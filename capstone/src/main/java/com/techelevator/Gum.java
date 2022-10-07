@@ -1,10 +1,12 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
+
 public class Gum implements Sellable{
 
     private String name;
     private String slotNumber;
-    private double price;
+    private BigDecimal price;
     private String type = "Gum";
 
     @Override
@@ -28,12 +30,12 @@ public class Gum implements Sellable{
     }
 
     @Override
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
     @Override
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return this.price;
     }
 

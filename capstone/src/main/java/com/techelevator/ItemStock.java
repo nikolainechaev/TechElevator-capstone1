@@ -2,6 +2,7 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -30,8 +31,9 @@ public class ItemStock {
                 String name = values[1];
                 String cost = values[2];
                 String type = values[3];
+                BigDecimal num = new BigDecimal(cost);
 
-                double num = Double.parseDouble(cost);
+//                double num = Double.parseDouble(cost);
 
                 if(type.equals(DRINK)){
 

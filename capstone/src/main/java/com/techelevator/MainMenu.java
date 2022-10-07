@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -68,11 +69,14 @@ public class MainMenu {
     public void salesReport(){
 
         int initialStock = 5;
-        double totalSales = 0;
+        BigDecimal totalSales = BigDecimal.ZERO;
         for(Sellable key : itemStock.keySet()){
 
             int itemsSold = initialStock - itemStock.get(key);
-            totalSales += (key.getPrice() * itemsSold);
+            BigDecimal price = key.getPrice();
+            BigDecimal i = new BigDecimal(itemsSold);
+            price = price.multiply(i);
+            totalSales = totalSales.add(price);
             System.out.println(key.getName() + " | " + itemsSold);
         }
         System.out.println();

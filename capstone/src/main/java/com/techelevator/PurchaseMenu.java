@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,8 +40,9 @@ public class PurchaseMenu {
 
             System.out.println("How much money do you want to deposit?");
             int number = uc.moneyDeposited();
-            b.depositMoney(number);
-            log.writeToFile("FEED MONEY:", number, b.getBalance());
+            BigDecimal newNumber = new BigDecimal(number);
+            b.depositMoney(newNumber);
+            log.writeToFile("FEED MONEY:", newNumber, b.getBalance());
             displayPurchaseMenu();
 
         } else if(num == 2){
@@ -56,7 +58,7 @@ public class PurchaseMenu {
 
         } else {
 
-            log.writeToFile("GIVE CHANGE:",b.getBalance(),0.00);
+            log.writeToFile("GIVE CHANGE:",b.getBalance(),BigDecimal.ZERO);
             b.getChange();
             System.out.println();
             MainMenu m = new MainMenu(itemsStock);
@@ -77,7 +79,7 @@ public class PurchaseMenu {
                     System.out.println();
                     displayPurchaseMenu();
 
-                } else if(b.getBalance() < key.getPrice()){
+                } else if(b.getBalance().compareTo(key.getPrice()) == -1){
 
                     System.out.println("Sorry, not enough money");
                     System.out.println();
@@ -101,8 +103,8 @@ public class PurchaseMenu {
             }
         }
 
-            System.out.println("Invalid code entered:");
-            System.out.println();
-            displayPurchaseMenu();
+        System.out.println("Invalid code entered:");
+        System.out.println();
+        displayPurchaseMenu();
     }
 }

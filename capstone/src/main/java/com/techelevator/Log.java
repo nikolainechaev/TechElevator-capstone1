@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Log {
@@ -11,7 +12,7 @@ public class Log {
     String filename = "C:\\Users\\Student\\workspace\\capstone-1-team-0\\capstone\\Log.txt";
     File f = new File(filename);
 
-    public void writeToFile(String action, double deposit, double remainder){
+    public void writeToFile(String action, BigDecimal deposit, BigDecimal remainder){
 
         try(PrintWriter writer = new PrintWriter(new FileOutputStream(f,true))){
 
