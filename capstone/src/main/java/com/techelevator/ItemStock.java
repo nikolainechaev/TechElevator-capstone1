@@ -26,37 +26,41 @@ public class ItemStock {
 
                 String lineOfText = fileReader.nextLine();
                 String[] values = lineOfText.split("\\|");
+                String slot = values[0];
+                String name = values[1];
+                String cost = values[2];
+                String type = values[3];
 
-                double num = Double.parseDouble(values[2]);
+                double num = Double.parseDouble(cost);
 
-                if(values[3].equals(DRINK)){
+                if(type.equals(DRINK)){
 
                     Drink d = new Drink();
-                    d.setName(values[1]);
-                    d.setSlotNumber(values[0]);
+                    d.setName(name);
+                    d.setSlotNumber(slot);
                     d.setPrice(num);
                     items.put(d,INITIAL_STOCK);
 
-                } else if(values[3].equals(GUM)){
+                } else if(type.equals(GUM)){
 
                     Gum g = new Gum();
-                    g.setName(values[1]);
-                    g.setSlotNumber(values[0]);
+                    g.setName(name);
+                    g.setSlotNumber(slot);
                     g.setPrice(num);
                     items.put(g,INITIAL_STOCK);
 
-                } else if(values[3].equals(CANDY)){
+                } else if(type.equals(CANDY)){
 
                     Candy c = new Candy();
-                    c.setName(values[1]);
-                    c.setSlotNumber(values[0]);
+                    c.setName(name);
+                    c.setSlotNumber(slot);
                     c.setPrice(num);
                     items.put(c,INITIAL_STOCK);
 
-                } else if(values[3].equals(CHIP)){
+                } else if(type.equals(CHIP)){
                     Chip c = new Chip();
-                    c.setName(values[1]);
-                    c.setSlotNumber(values[0]);
+                    c.setName(name);
+                    c.setSlotNumber(slot);
                     c.setPrice(num);
                     items.put(c,INITIAL_STOCK);
                 }

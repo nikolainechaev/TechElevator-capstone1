@@ -12,10 +12,10 @@ public class PurchaseMenu {
     private Balance b = new Balance();
     private Log log = new Log();
 
-    public PurchaseMenu(Map<Sellable, Integer> stock, List<Sellable> items){
+    public PurchaseMenu(Map<Sellable, Integer> itemsStock, List<Sellable> items){
 
         this.items = items;
-        this.itemsStock = stock;
+        this.itemsStock = itemsStock;
 
     }
 

@@ -62,12 +62,12 @@ public class UserChoice {
 
             if(choice > 4 || choice < 1){
                 System.out.println("please enter a number 1-4");
-                getMenuChoice();
+                getMainMenuChoice();
             }
         } catch (IllegalArgumentException e){
 
             System.out.println("please enter a number 1-4");
-            getMenuChoice();
+            getMainMenuChoice();
         }
 
         return choice;
