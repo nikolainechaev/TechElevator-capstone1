@@ -10,6 +10,7 @@ public class PurchaseMenu {
     private List<Sellable> items;
     private UserChoice uc = new UserChoice();
     private Balance b = new Balance();
+    private Log log = new Log();
 
     public PurchaseMenu(Map<Sellable, Integer> stock, List<Sellable> items){
 
@@ -39,6 +40,7 @@ public class PurchaseMenu {
             System.out.println("How much money do you want to deposit?");
             int number = uc.moneyDeposited();
             b.depositMoney(number);
+            log.writeToFile("FEED MONEY:", number, b.getBalance());
             displayPurchaseMenu();
 
         } else if(num == 2){
@@ -54,6 +56,7 @@ public class PurchaseMenu {
 
         } else {
 
+            log.writeToFile("GIVE CHANGE:",b.getBalance(),0.00);
             b.getChange();
             System.out.println();
             MainMenu m = new MainMenu(itemsStock);
@@ -83,9 +86,14 @@ public class PurchaseMenu {
                 } else{
 
                     b.purchaseMade(key.getPrice());
+
+                    String str = key.getName() + " " + key.getSlotNumber();
+                    log.writeToFile(str,key.getPrice(),b.getBalance());
+
                     key.getNoise();
                     System.out.printf("Item - %s\nPrice - %.2f\nRemaining Balance - %.2f\n", key.getName(), key.getPrice(), b.getBalance());
                     System.out.println();
+
                     int stock = itemsStock.get(key);
                     itemsStock.put(key, stock -1);
                     displayPurchaseMenu();

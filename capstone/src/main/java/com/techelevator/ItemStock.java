@@ -13,6 +13,7 @@ public class ItemStock {
     final private String GUM = "Gum";
     final private String CANDY = "Candy";
     final private String CHIP = "Chip";
+    final private int INITIAL_STOCK = 5;
 
     public Map<Sellable,Integer> getItems() {
 
@@ -34,7 +35,7 @@ public class ItemStock {
                     d.setName(values[1]);
                     d.setSlotNumber(values[0]);
                     d.setPrice(num);
-                    items.put(d,5);
+                    items.put(d,INITIAL_STOCK);
 
                 } else if(values[3].equals(GUM)){
 
@@ -42,7 +43,7 @@ public class ItemStock {
                     g.setName(values[1]);
                     g.setSlotNumber(values[0]);
                     g.setPrice(num);
-                    items.put(g,5);
+                    items.put(g,INITIAL_STOCK);
 
                 } else if(values[3].equals(CANDY)){
 
@@ -50,14 +51,14 @@ public class ItemStock {
                     c.setName(values[1]);
                     c.setSlotNumber(values[0]);
                     c.setPrice(num);
-                    items.put(c,5);
+                    items.put(c,INITIAL_STOCK);
 
                 } else if(values[3].equals(CHIP)){
                     Chip c = new Chip();
                     c.setName(values[1]);
                     c.setSlotNumber(values[0]);
                     c.setPrice(num);
-                    items.put(c,5);
+                    items.put(c,INITIAL_STOCK);
                 }
             }
 
@@ -67,5 +68,4 @@ public class ItemStock {
 
         return items;
     }
-
 }

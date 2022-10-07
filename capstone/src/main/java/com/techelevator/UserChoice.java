@@ -52,4 +52,25 @@ public class UserChoice {
         return slot;
     }
 
+    public int getMainMenuChoice(){
+
+        String input = userInput.nextLine();
+
+        try{
+
+            choice = Integer.parseInt(input);
+
+            if(choice > 4 || choice < 1){
+                System.out.println("please enter a number 1-4");
+                getMenuChoice();
+            }
+        } catch (IllegalArgumentException e){
+
+            System.out.println("please enter a number 1-4");
+            getMenuChoice();
+        }
+
+        return choice;
+    }
+
 }

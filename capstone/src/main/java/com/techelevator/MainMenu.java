@@ -31,8 +31,9 @@ public class MainMenu {
         System.out.println("(1) Display Vending Machine Items");
         System.out.println("(2) Purchase");
         System.out.println("(3) Exit");
+        System.out.println("(4) Sales Report");
 
-        int num = uc.getMenuChoice();
+        int num = uc.getMainMenuChoice();
         displayMenuLogic(num);
     }
 
@@ -55,10 +56,29 @@ public class MainMenu {
             PurchaseMenu p = new PurchaseMenu(itemStock, items);
             p.displayPurchaseMenu();
 
-        } else{
+        } else if(num == 3){
             System.out.println("Have a good Day!");
             System.exit(0);
-        }
 
+        } else{
+            salesReport();
+        }
     }
+
+    public void salesReport(){
+
+        int initialStock = 5;
+        double totalSales = 0;
+        for(Sellable key : itemStock.keySet()){
+
+            int itemsSold = initialStock - itemStock.get(key);
+            totalSales += (key.getPrice() * itemsSold);
+            System.out.println(key.getName() + " | " + itemsSold);
+        }
+        System.out.println();
+        System.out.printf("**TOTAL SALES** $%.02f\n",totalSales);
+        System.out.println();
+        displayMainMenu();
+    }
+
 }
