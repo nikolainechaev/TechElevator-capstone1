@@ -7,7 +7,7 @@ public class Gum implements Sellable{
     private String name;
     private String slotNumber;
     private BigDecimal price;
-    private String type = "Gum";
+    final private String type = "Gum";
 
     @Override
     public void setName(String name) {

@@ -7,9 +7,9 @@ import java.util.Map;
 
 public class MainMenu {
 
-    List<Sellable> items = new ArrayList<>();
-    Map<Sellable, Integer> itemStock;
-    UserChoice uc = new UserChoice();
+    private List<Sellable> items = new ArrayList<>();
+    private Map<Sellable, Integer> itemStock;
+    final private UserChoice uc = new UserChoice();
 
     //                     Key      Value
     public MainMenu(Map<Sellable, Integer> stock){
@@ -58,6 +58,7 @@ public class MainMenu {
             p.displayPurchaseMenu();
 
         } else if(num == 3){
+
             System.out.println("Have a good Day!");
             System.exit(0);
 
@@ -70,13 +71,16 @@ public class MainMenu {
 
         int initialStock = 5;
         BigDecimal totalSales = BigDecimal.ZERO;
+
         for(Sellable key : itemStock.keySet()){
 
             int itemsSold = initialStock - itemStock.get(key);
             BigDecimal price = key.getPrice();
             BigDecimal i = new BigDecimal(itemsSold);
+
             price = price.multiply(i);
             totalSales = totalSales.add(price);
+
             System.out.println(key.getName() + " | " + itemsSold);
         }
         System.out.println();

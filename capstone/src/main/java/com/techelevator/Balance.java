@@ -19,6 +19,7 @@ public class Balance {
     }
 
     public void getChange(){
+
         BigDecimal quarterValue = new BigDecimal(".25");
         BigDecimal dimeValue = new BigDecimal(".1");
         BigDecimal nickelValue = new BigDecimal(".05");

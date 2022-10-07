@@ -7,7 +7,7 @@ public class Candy implements Sellable{
     private String name;
     private String slotNumber;
     private BigDecimal price;
-    private String type = "Candy";
+    final private String type = "Candy";
 
     @Override
     public void setName(String name) {

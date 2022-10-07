@@ -9,22 +9,25 @@ import java.time.LocalDateTime;
 
 public class Log {
 
-    String filename = "C:\\Users\\Student\\workspace\\capstone-1-team-0\\capstone\\Log.txt";
-    File f = new File(filename);
+    final private String filename = "C:\\Users\\Student\\workspace\\capstone-1-team-0\\capstone\\Log.txt";
+    final private File f = new File(filename);
 
     public void writeToFile(String action, BigDecimal deposit, BigDecimal remainder){
 
-        try(PrintWriter writer = new PrintWriter(new FileOutputStream(f,true))){
+        try(final PrintWriter writer = new PrintWriter(new FileOutputStream(f,true))){
 
             LocalDateTime date = LocalDateTime.now();
+
             int year = date.getYear();
             int month = date.getMonthValue();
             int day = date.getDayOfMonth();
             int hour = date.getHour();
 
             String morningOrNight = "";
+
             if(hour >= 12){
                 morningOrNight = "PM";
+
             } else{
                 morningOrNight = "AM";
             }

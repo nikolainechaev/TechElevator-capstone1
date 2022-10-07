@@ -9,9 +9,9 @@ public class PurchaseMenu {
 
     private Map<Sellable, Integer> itemsStock;
     private List<Sellable> items;
-    private UserChoice uc = new UserChoice();
-    private Balance b = new Balance();
-    private Log log = new Log();
+    final private UserChoice uc = new UserChoice();
+    final private Balance b = new Balance();
+    final private Log log = new Log();
 
     public PurchaseMenu(Map<Sellable, Integer> itemsStock, List<Sellable> items){
 
@@ -40,8 +40,10 @@ public class PurchaseMenu {
 
             System.out.println("How much money do you want to deposit?");
             int number = uc.moneyDeposited();
+
             BigDecimal newNumber = new BigDecimal(number);
             b.depositMoney(newNumber);
+
             log.writeToFile("FEED MONEY:", newNumber, b.getBalance());
             displayPurchaseMenu();
 
@@ -60,7 +62,9 @@ public class PurchaseMenu {
 
             log.writeToFile("GIVE CHANGE:",b.getBalance(),BigDecimal.ZERO);
             b.getChange();
+
             System.out.println();
+
             MainMenu m = new MainMenu(itemsStock);
             m.displayMainMenu();
         }

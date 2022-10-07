@@ -12,6 +12,7 @@ public class VendingMachineCLI {
 
 		ItemStock i = new ItemStock();
 		Map<Sellable,Integer> items;
+
 		items = i.getItems();
 
 		MainMenu m = new MainMenu(items);
