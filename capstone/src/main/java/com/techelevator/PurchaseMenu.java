@@ -65,7 +65,7 @@ public class PurchaseMenu {
 
             System.out.println();
 
-            MainMenu m = new MainMenu(itemsStock);
+            MainMenu m = new MainMenu(itemsStock,items);
             m.displayMainMenu();
         }
 

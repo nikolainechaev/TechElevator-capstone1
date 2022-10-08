@@ -19,6 +19,13 @@ public class MainMenu {
 
     }
 
+    public MainMenu(Map<Sellable, Integer> stock, List<Sellable> items){
+
+        this.itemStock = stock;
+        this.items = items;
+
+    }
+
     public void createList(){
 
         for (Sellable key : itemStock.keySet()) {
