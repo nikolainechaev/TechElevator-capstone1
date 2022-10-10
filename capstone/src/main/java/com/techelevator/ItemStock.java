@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ItemStock {
 
-    Map<Sellable, Integer> items = new HashMap<>();
+    private Map<Sellable, Integer> items = new HashMap<>();
     final private String DRINK = "Drink";
     final private String GUM = "Gum";
     final private String CANDY = "Candy";
